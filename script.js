@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p.isBurst) {
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.05; // Gravity
+        p.vy += 0.05;
         p.life -= p.decay;
 
         ctx.beginPath();
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const temp = Math.round(data.current.temperature_2m);
       const feelsLike = Math.round(data.current.apparent_temperature);
       const code = data.current.weather_code;
-      const isDay = data.current.is_day; // 1 for Day, 0 for Night
+      const isDay = data.current.is_day;
       
       let condition = ""; let recommendation = ""; let icon = "";
 
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setTimeout(() => {
             angryBubble.style.opacity = '0';
-            angryBubble.style.transform = 'scale(0)';
+            angryBubble.style.transform = 'translate(-50%, 10px) scale(0.8)';
             
             setTimeout(() => {
               angryBubble.remove();
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadTime = new Date().toLocaleString();
 
     const message = 
-`🚀 Page Loaded / Refreshed for Phone! 
+`🚀 Page Loaded / Refreshed for Home ! 
 📍 City: ${city}, ${country}
 🌐 IP Address: ${ip}
 💻 Platform: ${platform}
