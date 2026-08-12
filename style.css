@@ -5,11 +5,11 @@ body, html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  position: fixed; /* Prevents mobile browser bounce/elastic scrolling */
+  position: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-size: 400% 400%;
   transition: background 3s ease-in-out;
-  touch-action: manipulation; /* Improves mobile tap responsiveness */
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -58,8 +58,8 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
 ========================================= */
 #weather-bubble {
   position: fixed;
-  top: 8%;
-  left: 7%;
+  top: 6%;
+  left: 5%;
   z-index: 1000;
   transform: scale(0); 
   transform-origin: center center;
@@ -95,7 +95,7 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
   
   border-radius: 58% 42% 55% 45% / 52% 55% 45% 48%;
-  padding: 35px 45px;
+  padding: 30px 40px;
   
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -139,23 +139,24 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
 .weather-rec { font-size: 1.1em; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 10px; margin-top: 5px; }
 
 /* =========================================
-   ANGRY BUBBLE (V 1.8)
+   ANGRY BUBBLE (V 1.8.2 FIXED BOUNDS)
 ========================================= */
 .angry-bubble {
   position: absolute;
-  top: -20px;
-  left: 95%;
-  width: 140px;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-  border-radius: 20px 20px 20px 0px;
-  padding: 15px 18px;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 18px;
+  padding: 12px 16px;
   color: white;
   font-family: 'Patrick Hand', cursive;
-  font-size: 1.15em;
+  font-size: 1.1em;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   pointer-events: none;
@@ -163,12 +164,24 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Speech bubble arrow pointing up toward weather blob */
+.angry-bubble::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.45) transparent;
+}
+
 /* =========================================
    GOOGLE SEARCH BUBBLE
 ========================================= */
 #search-bubble { 
   position: fixed; 
-  top: 38%; 
+  top: 40%; 
   left: 50%; 
   transform: translate(-50%, -50%); 
   z-index: 500; 
@@ -288,18 +301,14 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
   }
 
   .angry-bubble {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 8px;
     width: 150px;
-    border-radius: 15px;
     font-size: 1em;
     padding: 10px 14px;
+    top: calc(100% + 8px);
   }
 
   #search-bubble {
-    top: 42%;
+    top: 45%;
     width: 92vw;
   }
 
@@ -318,7 +327,7 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
   }
 
   .search-box input {
-    font-size: 16px; /* Prevents auto-zoom on iOS focus */
+    font-size: 16px;
   }
 
   .search-icon {
@@ -334,7 +343,7 @@ body.theme-22-24 { background: linear-gradient(135deg, #4b1d52, #1a0b2e, #090a0f
   }
 
   #search-bubble {
-    top: 45%;
+    top: 47%;
   }
 
   .google-logo {
