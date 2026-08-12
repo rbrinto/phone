@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (p.isBurst) {
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.05;
+        p.vy += 0.05; // Gravity
         p.life -= p.decay;
 
         ctx.beginPath();
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           setTimeout(() => {
             angryBubble.style.opacity = '0';
-            angryBubble.style.transform = 'translate(-50%, 10px) scale(0.8)';
+            angryBubble.style.transform = 'scale(0)';
             
             setTimeout(() => {
               angryBubble.remove();
